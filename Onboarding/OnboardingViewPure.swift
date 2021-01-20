@@ -31,70 +31,90 @@ struct OnboardingViewPure: View {
     }
     
     var body: some View {
-        ZStack {
-            Color(.systemBackground).edgesIgnoringSafeArea(.all)
-            
-            ZStack(alignment: .center) {
-                ForEach(0..<data.count) { i in
-                    OnboardingStepView(data: self.data[i])
-                        .offset(x: CGFloat(i) * self.distance)
-                        .offset(x: self.slideGesture.width - CGFloat(self.curSlideIndex) * self.distance)
-                        .animation(.spring())
-                        .gesture(DragGesture().onChanged{ value in
-                            self.slideGesture = value.translation
-                        }
-                        .onEnded{ value in
-                            if self.slideGesture.width < -50 {
-                                if self.curSlideIndex < self.data.count - 1 {
-                                    withAnimation {
-                                        self.curSlideIndex += 1
-                                    }
-                                }
-                            }
-                            if self.slideGesture.width > 50 {
-                                if self.curSlideIndex > 0 {
-                                    withAnimation {
-                                        self.curSlideIndex -= 1
-                                    }
-                                }
-                            }
-                            self.slideGesture = .zero
-                        })
-                }
-            }
-            
-            
-            VStack {
+        VStack{
+            HStack {
                 Spacer()
-                HStack {
-                    self.progressView()
-                    Spacer()
-                    Button(action: nextButton) {
-                        self.arrowView()
+                Text("Skip")
+                    .padding(.trailing)
+                    .foregroundColor(.accentColor)
+                    .font(.title2)
+                    .onTapGesture {
+                        doneFunction()
+                    }
+            }
+            ZStack {
+                Color(.systemBackground).edgesIgnoringSafeArea(.all)
+                
+                ZStack(alignment: .center) {
+                    ForEach(0..<data.count) { i in
+                        OnboardingStepView(data: self.data[i])
+                            .offset(x: CGFloat(i) * self.distance)
+                            .offset(x: self.slideGesture.width - CGFloat(self.curSlideIndex) * self.distance)
+                            .animation(.spring())
+                            .gesture(DragGesture().onChanged{ value in
+                                self.slideGesture = value.translation
+                            }
+                            .onEnded{ value in
+                                if self.slideGesture.width < -50 {
+                                    if self.curSlideIndex < self.data.count - 1 {
+                                        withAnimation {
+                                            self.curSlideIndex += 1
+                                        }
+                                    }
+                                }
+                                if self.slideGesture.width > 50 {
+                                    if self.curSlideIndex > 0 {
+                                        withAnimation {
+                                            self.curSlideIndex -= 1
+                                        }
+                                    }
+                                }
+                                self.slideGesture = .zero
+                            })
                     }
                 }
+                
+                
+                VStack {
+                    Spacer()
+                    self.progressView()
+                    //HStack {
+                        //Spacer()
+                        Button(action: nextButton) {
+                            self.arrowView()
+                        }.padding(.top, 40.0)
+                    //}.padding(.top, 40.0)
+                }
+                .padding(20)
             }
-            .padding(20)
-        }
+        }.background((Color(.systemBackground)).edgesIgnoringSafeArea(.all))
     }
     
     func arrowView() -> some View {
         Group {
             if self.curSlideIndex == self.data.count - 1 {
                 HStack {
-                    Text("Done")
-                        .font(.system(size: 27, weight: .medium, design: .rounded))
-                        .foregroundColor(Color(.systemBackground))
+                    Text("Get started")
+                        .fontWeight(.semibold)
+                        .font(.title3)
+                        .frame(minWidth: 200)
+                        .padding()
+                        .foregroundColor(.white)
+                        .background(Color(.blue))
+                        .cornerRadius(40)
                 }
-                .frame(width: 120, height: 50)
-                .background(Color(.label))
-                .cornerRadius(25)
             } else {
-                Image(systemName: "arrow.right.circle.fill")
-                    .resizable()
-                    .foregroundColor(Color(.label))
-                    .scaledToFit()
-                    .frame(width: 50)
+                HStack{
+                    Spacer()
+                    Text("Next")
+                        .fontWeight(.semibold)
+                        .font(.title3)
+                        .frame(minWidth: 80)
+                        .padding()
+                        .foregroundColor(.white)
+                        .background(Color(.blue))
+                        .cornerRadius(40)
+                }
             }
         }
     }
@@ -103,9 +123,10 @@ struct OnboardingViewPure: View {
         HStack {
             ForEach(0..<data.count) { i in
                 Circle()
-                    .scaledToFit()
-                    .frame(width: 10)
-                    .foregroundColor(self.curSlideIndex >= i ? Color(.systemIndigo) : Color(.systemGray))
+                    .frame(width: 10.0, height: 10.0)
+                    .foregroundColor(.accentColor)
+                    .padding(.horizontal, 2.0)
+                    .opacity(self.curSlideIndex == i ? 1 : 0.25)
             }
         }
     }
@@ -118,3 +139,4 @@ struct OnboardingViewPure_Previews: PreviewProvider {
         OnboardingViewPure(data: sample, doneFunction: { print("done") })
     }
 }
+

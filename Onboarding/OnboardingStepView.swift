@@ -12,21 +12,24 @@ struct OnboardingStepView: View {
     var data: OnboardingDataModel
     
     var body: some View {
-        VStack {
+        VStack(){
+            Spacer()
             Image(data.image)
                 .resizable()
-                .scaledToFit()
-                .padding(.bottom, 50)
-            
+                .aspectRatio(contentMode: .fit)
+                .frame(width: 300)
             Text(data.heading)
-                .font(.system(size: 25, design: .rounded))
-                .fontWeight(.bold)
-                .padding(.bottom, 20)
-            
-            Text(data.text)
-                .font(.system(size: 17, design: .rounded))
-                .fontWeight(.medium)
+                .font(.largeTitle)
+                .bold()
+                .foregroundColor(.blue)
                 .multilineTextAlignment(.center)
+                .padding()
+            Text(data.text)
+                .font(.body)
+                .multilineTextAlignment(.center)
+                .padding(.horizontal, 60.0)
+                .foregroundColor(.accentColor)
+            Spacer()
         }
     .padding()
     }

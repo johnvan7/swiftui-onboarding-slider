@@ -64,6 +64,7 @@
 			children = (
 				0D26E8F924B30D370013AC43 /* OnboardingDataModel.swift */,
 				0D26E8FB24B30DA90013AC43 /* OnboardingStepView.swift */,
+				0D26E8FD24B30E340013AC43 /* OnboardingViewPure.swift */,
 				0D26E8E424B30CD00013AC43 /* AppDelegate.swift */,
 				0D26E8E624B30CD00013AC43 /* SceneDelegate.swift */,
 				0D26E8E824B30CD00013AC43 /* ContentView.swift */,
@@ -71,7 +72,6 @@
 				0D26E8EF24B30CD40013AC43 /* LaunchScreen.storyboard */,
 				0D26E8F224B30CD40013AC43 /* Info.plist */,
 				0D26E8EC24B30CD40013AC43 /* Preview Content */,
-				0D26E8FD24B30E340013AC43 /* OnboardingViewPure.swift */,
 			);
 			path = Onboarding;
 			sourceTree = "<group>";
@@ -228,7 +228,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -282,7 +282,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -298,14 +298,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Onboarding/Preview Content\"";
-				DEVELOPMENT_TEAM = JDDZ55DT74;
+				DEVELOPMENT_TEAM = RH66WYDYM6;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Onboarding/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.amgauge.onboarding.Onboarding;
+				PRODUCT_BUNDLE_IDENTIFIER = com.johnvan7.onboarding.Onboarding;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -318,14 +318,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Onboarding/Preview Content\"";
-				DEVELOPMENT_TEAM = JDDZ55DT74;
+				DEVELOPMENT_TEAM = RH66WYDYM6;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Onboarding/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.amgauge.onboarding.Onboarding;
+				PRODUCT_BUNDLE_IDENTIFIER = com.johnvan7.onboarding.Onboarding;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
