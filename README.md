@@ -1,7 +1,7 @@
 # SwiftUI Onboarding
 
 ## About
-Onboarding/slider with swiping gesture written entirely in SwiftUI.
+Onboarding/slider with swiping gesture with Skip written entirely in SwiftUI.
 
 ## Demo
 Video is worth a thousand words
